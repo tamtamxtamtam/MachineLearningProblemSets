@@ -1,0 +1,79 @@
+SQL
+Task 1:
+  SELECT * FROM CITY WHERE ID = 1661;
+Task 2:
+  SELECT * FROM CITY WHERE POPULATION > 100000;
+Task 3:
+  SELECT * FROM CITY WHERE COUNTRYCODE = JPN;
+Task 4:
+  SELECT NAME FROM CITY WHERE COUNTRYCODE = JPN;
+Task 5:
+  SELECT CITY, STATE FROM STATION;
+Task 6:
+  SELECT DISTINCT CITY FROM STATION WHERE ID % 2 = 0;
+  SELECT COUNT(CITY) - COUNT(DISTINCT CITY) FROM STATION ;
+Task 7:
+  SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY), CITY LIMIT 1;
+  SELECT CITY, LENGTH(CITY) FROM STATION ORDER BY LENGTH(CITY) DESC, CITY LIMIT 1;
+Task 8:
+  SELECT distinct CITY FROM STATION WHERE CITY LIKE 'A%' OR CITY LIKE 'E%' OR CITY LIKE 'O%' OR CITY LIKE 'I%' OR CITY LIKE 'U%';
+Task 9:
+  SELECT distinct CITY FROM STATION WHERE CITY LIKE 'A%' OR CITY LIKE '%E' OR CITY LIKE '%O' OR CITY LIKE '%I' OR CITY LIKE '%U';
+Task 10:
+  SELECT distinct CITY FROM STATION WHERE CITY LIKE '%A%' OR CITY LIKE '%E%' OR CITY LIKE '%O%' OR CITY LIKE '%I%' OR CITY LIKE '%U%';
+
+Python
+Task 1:
+
+if __name__ == '__main__':
+    n = int(input())
+    # your code here
+    if n%2 == 1:
+      print('Weird')
+    elif n>=2 and n<=5:
+      print('Not Weird')
+    elif n>=6 and n<=20:
+      print('Weird')
+    else:
+      print('Not Weird')
+
+Task 2:
+
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+    # your code here
+    print(a+b)
+    print(a-b)
+    print(a*b)
+
+Task 3:
+
+  if __name__ == '__main__':
+    n = int(input())
+    # your code here
+    for i in range(1,n):
+      print(i**2)
+
+Task 4:
+
+def is_leap(year):
+  pass
+  # your code here
+  if year%400==0:
+    return True
+  if year%100==0:
+    return False
+  if year%4==0:
+    return False
+print(is_leap(int(input())))
+
+Task 5:
+
+if __name__ == '__main__':
+  n = int(input())
+  # your code here
+  arr=input().split(' ')
+  list=sorted(arr)
+  print(list[-2])
+
