@@ -1,0 +1,52 @@
+**What is the average BasePay? **
+sal['BasePay'].mean()
+
+**What is the lowest and highest amount of BasePay?**
+sal['BasePay'].min()
+sal['BasePay'].max()
+
+**How about OvertimePay in the dataset? What is the average, lowest, highest amount?**
+sal['OvertimePay'].mean()
+sal['OvertimePay'].min()
+sal['OvertimePay'].max()
+
+**What is the job title of JOSEPH DRISCOLL? Note: Use all caps, otherwise you may get an answer that doesn't match up (there is also a lowercase Joseph Driscoll).**
+sal[sal['EmployeeName']=='JOSEPH DRISCOLL']['JobTitle']
+sal[sal['EmployeeName']=='GARY JIMENEZ']['JobTitle']
+
+**How much does JOSEPH DRISCOLL make (including benefits)?**
+sal[sal['EmployeeName']=='JOSEPH DRISCOLL']['TotalPayBenefits']
+
+**What is the name of highest paid person (including benefits)?**
+per = sal['TotalPayBenefits'].idxmax()
+sal.loc[per]['EmployeeName']
+
+**What is the name of lowest paid person (including benefits)? Do you notice something strange about how much he or she is paid?**
+per = sal['TotalPayBenefits'].idxmin()
+sal.iloc[per]
+
+**What was the average (mean) BasePay of all employees per year? (2011-2014)?**
+sal.groupby('Year').mean()['BasePay']
+
+**How many unique job titles are there?**
+sal['JobTitle'].nunique()
+
+**What are the top 5 most common jobs?**
+sal['JobTitle'].value_counts().head()
+
+**How many Job Titles were represented by only one person in 2013? (eg Job Titles with only one occurence in 2013?)**
+(sal[sal['Year']==2013]['JobTitle'].value_counts()==1).sum()
+
+**How many people have the word Chief in their job title?**
+sal['JobTitle'].apply(lambda str:('chief' in str.lower())).sum()
+
+**DATA VISUALIZATION
+sns.distplot(sal[sal["Year"] == 2012]["BasePay"], bins = 30);
+sns.distplot(sal[sal["Year"] == 2013]["BasePay"], bins = 30);
+sns.distplot(sal[sal["Year"] == 2014]["BasePay"], bins = 30);
+
+**BONUS**
+sal.groupby('JobTitle').mean()['BasePay'].head().plot(kind='bar')
+sal.groupby('JobTitle').mean()['Benefits'].head().plot(kind='bar')
+sal.groupby('JobTitle').mean()['OvertimePay'].head().plot(kind='bar')
+
